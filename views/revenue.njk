@@ -1,0 +1,44 @@
+{% extends 'layout.njk' %}
+
+    {% block content %}
+
+        <div class="revenue-cover">
+            <img src="{{ data.image }}" alt="">
+        </div>
+
+        <div class="revenue-title">
+            <h1>{{ data.title }}</h1>
+            <p>{{ data.author }}</p>
+        </div>
+    
+    <div class="revenue-info">
+        <h3 class="subtitle">Ingredientes</h3>
+        <p class="showorhide-info">Esconder</p>
+
+            <div class="revenue-list">
+                <ul class="text info">
+                    {% for ingredient in data.ingredients %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                        
+                </ul>
+            </div>
+    </div>
+
+    <div class="revenue-prepare">
+        <h3 class="subtitle">Modo de preparo</h3>
+        <p class="showorhide-prepare">Esconder</p>
+        <p class="text prepare">{{ data.preparation | join('', ',') }}</p>
+
+    </div>
+
+    <div class="revenue-instructions">
+    <h3 class="subtitle">Informacoes adicionais</h3>
+
+    <p class="showorhide-instructions">Esconder</p>
+    <p class="text instructions">{{ data.information | striptags(true) | escape | nl2br  }}</p>
+    </div>
+
+    <script src="\scripts.js"></script>
+
+    {% endblock %}

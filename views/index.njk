@@ -1,0 +1,33 @@
+{% extends 'layout.njk' %}
+
+    {% block content %}
+
+        <div class="image_rectangle">
+            <div class="image_info">
+                <h1>As melhores receitas</h1>
+                <p>Aprenda a construir os melhores pratos
+                com receitas criadas por profissionais
+                do mundo inteiro.</p>
+            </div>
+        
+            <img src="./assets/chef.png" alt="Imagem chef">
+        
+        </div>
+        
+       <div class="cards">
+
+            {% for data in datas %}
+
+            <div class="card" id="{{ datas.indexOf(data) }}">
+                <img src="{{ data.image }}" alt="{{ data.little }}">
+                <p class="title">{{ data.title }}</p>
+                <p class="author">{{ data.author }}</p>
+            </div>
+            
+            {% endfor %}
+
+        </div>
+    
+   <script src="\scripts.js"></script>
+
+{% endblock %}
